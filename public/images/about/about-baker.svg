@@ -1,0 +1,34 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1000" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F2E7"/>
+      <stop offset="1" stop-color="#DDEDD7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="200" fill="#F0DFC2" opacity="0.55"/>
+  <circle cx="830" cy="820" r="230" fill="#C7E3BD" opacity="0.55"/>
+  <circle cx="500" cy="540" r="250" fill="#EFE0C4"/>
+  <path d="M500 290 Q560 330 582 390 Q595 470 540 550 Q430 590 365 510 Q340 430 415 340 Z" fill="#E8B163"/>
+  <path d="M500 330 L522 322 M500 330 L518 352 M500 330 L478 322 M500 330 L482 352" stroke="#FFF6E6" stroke-width="9" stroke-linecap="round"/>
+  <circle cx="352" cy="610" r="90" fill="#E0A45B"/>
+  <circle cx="352" cy="610" r="72" fill="#F3C25F"/>
+  <circle cx="352" cy="585" r="40" fill="#E5A93F"/>
+  <circle cx="352" cy="610" r="22" fill="#C98E4B"/>
+  <path d="M620 470 Q 700 400 780 470 Q 760 560 690 560 Q 640 560 620 470Z" fill="#C98E4B"/>
+  <circle cx="620" cy="470" r="16" fill="#E0A45B"/>
+  <circle cx="660" cy="520" r="16" fill="#E0A45B"/>
+  <circle cx="700" cy="540" r="16" fill="#E0A45B"/>
+  <g stroke="#B57F3E" stroke-width="10" stroke-linecap="round">
+    <line x1="640" y1="440" x2="665" y2="500"/>
+    <line x1="700" y1="430" x2="725" y2="490"/>
+    <line x1="760" y1="450" x2="785" y2="510"/>
+  </g>
+  <circle cx="700" cy="640" r="34" fill="#F0C178"/>
+  <circle cx="710" cy="642" r="10" fill="#8A5133"/>
+  <circle cx="700" cy="634" r="8" fill="#8A5133"/>
+  <circle cx="716" cy="652" r="9" fill="#8A5133"/>
+  <path d="M250 750 Q350 700 430 730" stroke="#F7F2E7" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M300 700 L300 790 M300 700 L360 790 M300 700 L355 780" stroke="#F7F2E7" stroke-width="10" stroke-linecap="round" opacity="0.9"/>
+  <text x="500" y="920" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="4">Tangan Ahli Kami</text>
+</svg>

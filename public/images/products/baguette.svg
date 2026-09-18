@@ -1,0 +1,20 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6EA"/>
+      <stop offset="1" stop-color="#E2EFD9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="1000" cy="200" r="270" fill="#D3E6C7" opacity="0.6"/>
+  <circle cx="170" cy="780" r="200" fill="#F0DFC2" opacity="0.6"/>
+  <line x1="430" y1="470" x2="790" y2="470" stroke="#E0A45B" stroke-width="120" stroke-linecap="round"/>
+  <line x1="430" y1="470" x2="790" y2="470" stroke="#C98E4B" stroke-width="120" stroke-linecap="round" opacity="0"/>
+  <g stroke="#B57F3E" stroke-width="14" stroke-linecap="round">
+    <line x1="520" y1="430" x2="552" y2="510"/>
+    <line x1="580" y1="430" x2="612" y2="510"/>
+    <line x1="640" y1="430" x2="672" y2="510"/>
+    <line x1="700" y1="430" x2="732" y2="510"/>
+  </g>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Baguette Segar</text>
+</svg>

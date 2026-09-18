@@ -1,0 +1,34 @@
+<svg width="1000" height="1000" viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1000" y2="1000" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF5E8"/>
+      <stop offset="1" stop-color="#E2EFD9"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.4" r="0.6">
+      <stop stop-color="#C9E6BE" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#C9E6BE" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1000" height="1000" fill="url(#bg)"/>
+  <rect width="1000" height="1000" fill="url(#glow)"/>
+  <circle cx="180" cy="180" r="180" fill="#F0DFC2" opacity="0.55"/>
+  <circle cx="850" cy="850" r="220" fill="#C8E4BE" opacity="0.5"/>
+  <ellipse cx="500" cy="640" rx="330" ry="80" fill="#E3D6BA"/>
+  <path d="M500 260 Q560 300 580 360 Q590 440 540 520 Q430 560 360 480 Q330 400 410 300 Z" fill="#E8B163"/>
+  <path d="M500 300 L520 292 M500 300 L518 322 M500 300 L480 292 M500 300 L482 322" stroke="#FFF6E6" stroke-width="10" stroke-linecap="round"/>
+  <path d="M700 330 C 740 250 830 220 900 260 C 940 290 950 330 920 350 C 880 340 830 365 790 400 C 740 445 660 450 600 430 Q 640 370 700 330Z" fill="#D1903F"/>
+  <path d="M650 380 L700 365 M730 390 L780 372" stroke="#F7EFDD" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="330" cy="470" r="78" fill="#C98E4B"/>
+  <circle cx="330" cy="470" r="62" fill="#F3C25F"/>
+  <circle cx="330" cy="445" r="34" fill="#E5A93F"/>
+  <circle cx="330" cy="470" r="18" fill="#C98E4B"/>
+  <circle cx="560" cy="560" r="64" fill="#C9A25F"/>
+  <circle cx="560" cy="560" r="50" fill="#F2D9A8"/>
+  <circle cx="560" cy="560" r="22" fill="#C9A25F"/>
+  <g stroke="#8A5133" stroke-width="14" stroke-linecap="round">
+    <line x1="760" y1="520" x2="795" y2="600"/>
+    <line x1="690" y1="560" x2="725" y2="640"/>
+    <line x1="640" y1="530" x2="675" y2="610"/>
+  </g>
+  <text x="500" y="900" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="54" fill="#2F5B37" letter-spacing="4">Mahligai Bakery</text>
+</svg>

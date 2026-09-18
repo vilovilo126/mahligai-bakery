@@ -1,0 +1,29 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7F2E7"/>
+      <stop offset="1" stop-color="#DDEDD7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="980" cy="170" r="280" fill="#C8E4BE" opacity="0.55"/>
+  <circle cx="150" cy="770" r="200" fill="#EFDFC2" opacity="0.6"/>
+  <rect x="200" y="200" width="540" height="560" rx="24" fill="#7B502E"/>
+  <rect x="240" y="240" width="460" height="470" rx="14" fill="#CFE7C3"/>
+  <rect x="240" y="240" width="460" height="96" rx="14" fill="#F2F4E4"/>
+  <rect x="340" y="380" width="120" height="190" rx="8" fill="#B98A54"/>
+  <rect x="360" y="360" width="80" height="150" rx="8" fill="#A5753F"/>
+  <rect x="340" y="380" width="120" height="26" rx="8" fill="#D9B98A"/>
+  <rect x="500" y="360" width="140" height="230" rx="8" fill="#EFE6CF"/>
+  <rect x="500" y="360" width="140" height="30" rx="8" fill="#C7B693"/>
+  <rect x="690" y="200" width="300" height="430" rx="20" fill="#7B502E"/>
+  <rect x="720" y="230" width="240" height="370" rx="12" fill="#E8E2D0"/>
+  <rect x="720" y="230" width="240" height="30" rx="12" fill="#A5753F"/>
+  <path d="M720 420 Q840 380 960 420 L960 480 Q840 440 720 480Z" fill="#F4D9A8"/>
+  <circle cx="790" cy="330" r="34" fill="#E2A65A"/>
+  <circle cx="840" cy="330" r="34" fill="#E2A65A"/>
+  <circle cx="890" cy="330" r="34" fill="#E2A65A"/>
+  <circle cx="815" cy="375" r="34" fill="#C9A25F"/>
+  <circle cx="865" cy="375" r="34" fill="#C9A25F"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Tampilan Toko</text>
+</svg>

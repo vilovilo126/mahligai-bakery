@@ -1,0 +1,25 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6EA"/>
+      <stop offset="1" stop-color="#E2EFD9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="980" cy="170" r="270" fill="#D3E6C7" opacity="0.6"/>
+  <circle cx="160" cy="770" r="190" fill="#F0DFC0" opacity="0.7"/>
+  <ellipse cx="600" cy="520" rx="380" ry="110" fill="#E6D9BC"/>
+  <circle cx="390" cy="430" r="95" fill="#C98E4B"/>
+  <circle cx="390" cy="430" r="76" fill="#F3C25F"/>
+  <circle cx="390" cy="400" r="42" fill="#E5A93F"/>
+  <circle cx="390" cy="430" r="22" fill="#C98E4B"/>
+  <circle cx="610" cy="470" r="95" fill="#C98E4B"/>
+  <circle cx="610" cy="470" r="76" fill="#F3C25F"/>
+  <circle cx="610" cy="440" r="42" fill="#E5A93F"/>
+  <circle cx="610" cy="470" r="22" fill="#C98E4B"/>
+  <circle cx="820" cy="420" r="95" fill="#C98E4B"/>
+  <circle cx="820" cy="420" r="76" fill="#F3C25F"/>
+  <circle cx="820" cy="390" r="42" fill="#E5A93F"/>
+  <circle cx="820" cy="420" r="22" fill="#C98E4B"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Fresh Baked Donat</text>
+</svg>

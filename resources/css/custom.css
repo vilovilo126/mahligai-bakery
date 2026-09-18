@@ -1,0 +1,437 @@
+/* ==========================================================
+   Mahligai Bakery — Custom Styles
+   Animasi, scrollbar, gradient, efek khusus & styling tambahan
+   yang tidak praktis dibuat dengan utility class Tailwind.
+   ========================================================== */
+
+:root {
+    --brand-deep: #1e432a;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background-color: var(--color-brand-300);
+    color: var(--color-brand-950);
+}
+
+/* ---------- Custom scrollbar ---------- */
+::-webkit-scrollbar {
+    width: 11px;
+    height: 11px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-cream-100);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--color-brand-400), var(--color-brand-600));
+    border-radius: 999px;
+    border: 2px solid var(--color-cream-100);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-brand-500);
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient-green {
+    background-image: linear-gradient(120deg, var(--color-brand-400), var(--color-brand-600));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.text-gradient-cream {
+    background-image: linear-gradient(120deg, #ffffff, var(--color-cream-200));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---------- Glass ---------- */
+.glass {
+    background-color: rgba(255, 255, 255, 0.78);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+.glass-dark {
+    background-color: rgba(15, 38, 24, 0.55);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+}
+
+/* ---------- Dot pattern ---------- */
+.bg-dots {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+}
+
+.bg-dots-dark {
+    background-image: radial-gradient(rgba(31, 67, 42, 0.12) 1px, transparent 1.5px);
+    background-size: 20px 20px;
+}
+
+/* ---------- Cards & image effects ---------- */
+.card-lift {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.card-lift:hover {
+    transform: translateY(-8px);
+}
+
+.img-zoom {
+    overflow: hidden;
+}
+
+.img-zoom img {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.img-zoom:hover img {
+    transform: scale(1.08);
+}
+
+.hover-underline {
+    position: relative;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    height: 2px;
+    width: 0;
+    background: currentColor;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+.shadow-soft {
+    box-shadow: 0 18px 45px -18px rgba(23, 53, 35, 0.22);
+}
+
+/* ---------- Navbar states ---------- */
+#site-header {
+    color: #ffffff;
+    transition: background-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
+}
+
+#site-header.is-scrolled {
+    color: var(--brand-deep);
+    background-color: rgba(253, 251, 245, 0.9);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 12px 32px -20px rgba(19, 44, 27, 0.45);
+}
+
+/* ---------- Mobile menu ---------- */
+#mobile-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+
+#mobile-menu.open {
+    max-height: 34rem;
+    opacity: 1;
+}
+
+#hamburger-btn .hamburger-line {
+    transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+#hamburger-btn.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#hamburger-btn.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#hamburger-btn.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------- Hide scrollbar (carousels) ---------- */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+    opacity: 0;
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0s);
+    will-change: opacity, transform;
+}
+
+.reveal-up {
+    transform: translateY(28px);
+}
+
+.reveal-left {
+    transform: translateX(-36px);
+}
+
+.reveal-right {
+    transform: translateX(36px);
+}
+
+.reveal-scale {
+    transform: scale(0.92);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes fade-up {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes float-sm {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: scale(0.7);
+        opacity: 0.9;
+    }
+    80%,
+    100% {
+        transform: scale(1.9);
+        opacity: 0;
+    }
+}
+
+@keyframes blob {
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(26px, -20px) scale(1.07);
+    }
+    66% {
+        transform: translate(-20px, 18px) scale(0.95);
+    }
+}
+
+@keyframes typing {
+    0%,
+    80%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.4;
+    }
+    40% {
+        transform: translateY(-4px);
+        opacity: 1;
+    }
+}
+
+@keyframes spin-slow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes bg-pan {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* ---------- Animation utilities ---------- */
+.anim-fade-up {
+    animation: fade-up 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.anim-fade-in {
+    animation: fade-in 0.9s ease both;
+}
+
+.anim-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+.anim-float-sm {
+    animation: float-sm 5s ease-in-out infinite;
+}
+
+.anim-marquee {
+    animation: marquee 30s linear infinite;
+}
+
+.anim-pulse-ring {
+    animation: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.anim-blob {
+    animation: blob 16s ease-in-out infinite;
+}
+
+.anim-spin-slow {
+    animation: spin-slow 26s linear infinite;
+}
+
+.marquee-track {
+    display: flex;
+    width: max-content;
+}
+
+/* ---------- Chat typing dots ---------- */
+.typing-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: var(--color-brand-400);
+    animation: typing 1.2s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.typing-dot:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* ---------- Animated gradient button ---------- */
+.btn-gradient {
+    background-image: linear-gradient(120deg, var(--color-brand-500), var(--color-brand-700));
+    background-size: 200% 200%;
+    animation: bg-pan 7s ease infinite;
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gradient:hover {
+    filter: brightness(1.08);
+}
+
+/* ---------- Open status pill ---------- */
+#open-status .status-dot {
+    background: #9ca3af;
+}
+
+#open-status.is-open .status-dot {
+    background: #22c55e;
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+}
+
+#open-status.is-closed .status-dot {
+    background: #9ca3af;
+}
+
+/* ---------- Gallery lightbox ---------- */
+.lightbox-backdrop {
+    transition: opacity 0.3s ease;
+}
+
+/* ---------- Opening hours table ---------- */
+.hours-row {
+    transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.hours-row.is-today {
+    background-color: var(--color-brand-50);
+    color: var(--color-brand-800);
+    border-radius: 0.6rem;
+}
+
+/* ---------- Testimonial slider ---------- */
+[data-testimonial-track] {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- Floating WhatsApp button ---------- */
+.wa-float {
+    z-index: 50;
+}

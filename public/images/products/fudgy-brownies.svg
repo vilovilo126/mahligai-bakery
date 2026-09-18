@@ -1,0 +1,19 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F5EDE0"/>
+      <stop offset="1" stop-color="#DCEBD6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="180" cy="170" r="260" fill="#EFE0C2" opacity="0.55"/>
+  <circle cx="1020" cy="750" r="260" fill="#C5E2BB" opacity="0.6"/>
+  <rect x="400" y="280" width="400" height="90" rx="16" fill="#4A2A18"/>
+  <rect x="400" y="360" width="400" height="130" rx="16" fill="#5F331E"/>
+  <rect x="400" y="330" width="400" height="40" fill="#6B4423"/>
+  <path d="M415 385 L445 385 M445 385 L475 385" stroke="#8A5133" stroke-width="12" stroke-linecap="round"/>
+  <path d="M555 385 L585 385 M585 385 L615 385" stroke="#8A5133" stroke-width="12" stroke-linecap="round"/>
+  <path d="M695 385 L725 385 M725 385 L755 385" stroke="#8A5133" stroke-width="12" stroke-linecap="round"/>
+  <rect x="400" y="280" width="400" height="20" rx="10" fill="#3A2012"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Fudgy Brownies</text>
+</svg>

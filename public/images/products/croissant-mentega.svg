@@ -1,0 +1,14 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6EA"/>
+      <stop offset="1" stop-color="#E4F0DA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="180" cy="180" r="280" fill="#E8D9B8" opacity="0.55"/>
+  <circle cx="1020" cy="730" r="250" fill="#C7E3BD" opacity="0.6"/>
+  <path d="M370 520 C 430 330 610 250 790 320 C 836 338 852 372 828 402 C 776 392 716 420 668 462 C 600 512 480 546 370 520Z" fill="#E8B163"/>
+  <path d="M520 360 L586 330 M586 330 L652 346 M560 404 L640 378 M640 378 L714 400" stroke="#F7EFDD" stroke-width="10" stroke-linecap="round"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Croissant Mentega</text>
+</svg>

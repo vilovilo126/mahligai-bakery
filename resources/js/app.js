@@ -1,0 +1,11 @@
+import './modules/navbar';
+import './modules/reveal';
+import './modules/carousel';
+import './modules/menu';
+import './modules/product-modal';
+import './modules/qris';
+import './modules/gallery';
+import './modules/open-hours';
+import './modules/counters';
+import './modules/testimonials';
+import './modules/chatbot';

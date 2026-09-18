@@ -1,0 +1,18 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F6EFE2"/>
+      <stop offset="1" stop-color="#DCEBD6"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="980" cy="170" r="280" fill="#D4E6C8" opacity="0.6"/>
+  <circle cx="180" cy="760" r="200" fill="#EDDDBE" opacity="0.6"/>
+  <rect x="430" y="330" width="340" height="150" rx="18" fill="#7D4A2B"/>
+  <rect x="430" y="390" width="340" height="90" rx="14" fill="#5F331E"/>
+  <path d="M430 500 C460 560 500 570 540 570 L660 570 C700 570 740 560 770 500 L770 540 Q770 620 690 620 L510 620 Q430 620 430 540 Z" fill="#8A5133"/>
+  <path d="M470 640 Q540 670 600 640 Q660 670 730 640" stroke="#C9E6BE" stroke-width="16" stroke-linecap="round" opacity="0.8"/>
+  <circle cx="600" cy="330" r="26" fill="#C03535"/>
+  <path d="M588 320 L600 306 L612 320 L612 336 L600 350 L588 336Z" fill="#7C2B2B"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Chocolate Cake</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6EA"/>
+      <stop offset="1" stop-color="#E2EFD9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="1000" cy="200" r="270" fill="#D3E6C7" opacity="0.6"/>
+  <circle cx="170" cy="780" r="200" fill="#F0DFC2" opacity="0.6"/>
+  <circle cx="600" cy="470" r="195" fill="#E2A65A"/>
+  <circle cx="600" cy="470" r="130" fill="#F0C178"/>
+  <circle cx="600" cy="470" r="55" fill="#E2A65A"/>
+  <ellipse cx="540" cy="330" rx="18" ry="10" fill="#F7EFDD"/>
+  <ellipse cx="670" cy="360" rx="18" ry="10" fill="#F7EFDD"/>
+  <ellipse cx="700" cy="560" rx="18" ry="10" fill="#F7EFDD"/>
+  <ellipse cx="520" cy="600" rx="18" ry="10" fill="#F7EFDD"/>
+  <ellipse cx="590" cy="480" rx="18" ry="10" fill="#F7EFDD"/>
+  <ellipse cx="680" cy="470" rx="18" ry="10" fill="#F7EFDD"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Bagel</text>
+</svg>

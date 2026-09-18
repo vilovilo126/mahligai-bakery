@@ -1,0 +1,25 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6EA"/>
+      <stop offset="1" stop-color="#E2EFD9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="180" cy="180" r="270" fill="#EFDFC2" opacity="0.55"/>
+  <circle cx="1020" cy="740" r="250" fill="#C7E3BD" opacity="0.6"/>
+  <rect x="330" y="420" width="540" height="60" rx="14" fill="#A5753F"/>
+  <rect x="330" y="420" width="540" height="22" rx="10" fill="#BF9056"/>
+  <g>
+    <path d="M400 430 C 440 330 560 300 640 340 C 700 370 730 420 700 430Z" fill="#E8B163"/>
+    <path d="M470 340 L520 330 M520 330 L565 350 M545 380 L610 365" stroke="#F7EFDD" stroke-width="9" stroke-linecap="round"/>
+    <path d="M520 430 C 560 340 660 320 740 360 C 800 386 820 430 790 440Z" fill="#E0A45B"/>
+    <path d="M580 360 L630 348 M630 348 L672 372" stroke="#F7EFDD" stroke-width="9" stroke-linecap="round"/>
+    <path d="M430 480 C 460 420 540 400 600 430 C 660 459 680 500 650 510Z" fill="#E8B163"/>
+    <path d="M610 510 C 650 430 740 400 820 440 C 880 468 900 510 870 520Z" fill="#E0A45B"/>
+    <path d="M500 560 C 540 500 620 490 660 520 C 700 550 700 590 660 600Z" fill="#C98E4B"/>
+  </g>
+  <path d="M330 570 L870 570 L870 650 L330 650Z" fill="#EFE6CF"/>
+  <rect x="330" y="570" width="540" height="18" rx="8" fill="#D8CDB2"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Display Croissant</text>
+</svg>

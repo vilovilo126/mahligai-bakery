@@ -1,0 +1,25 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF4E7"/>
+      <stop offset="1" stop-color="#DFEED8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="200" cy="200" r="280" fill="#EFDFC2" opacity="0.55"/>
+  <circle cx="1000" cy="730" r="250" fill="#C6E3BB" opacity="0.6"/>
+  <rect x="350" y="330" width="250" height="170" rx="16" fill="#F2D9A8"/>
+  <path d="M350 340 Q475 290 600 340 L600 380 Q475 330 350 380Z" fill="#E9C47E"/>
+  <rect x="370" y="370" width="70" height="60" rx="8" fill="#C0392B"/>
+  <rect x="500" y="370" width="80" height="70" rx="8" fill="#7C3E3E"/>
+  <circle cx="415" cy="500" r="16" fill="#C0392B"/>
+  <circle cx="585" cy="490" r="16" fill="#C0392B"/>
+  <rect x="680" y="420" width="160" height="120" rx="14" fill="#4A2A18"/>
+  <rect x="700" y="430" width="60" height="50" rx="8" fill="#5F331E"/>
+  <rect x="770" y="430" width="50" height="50" rx="8" fill="#6B4423"/>
+  <path d="M350 550 Q600 600 850 550 L850 640 Q600 690 350 640Z" fill="#EEE3C8"/>
+  <circle cx="600" cy="600" r="15" fill="#C8A25F"/>
+  <circle cx="500" cy="585" r="15" fill="#C8A25F"/>
+  <circle cx="700" cy="593" r="15" fill="#C8A25F"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Display Kue</text>
+</svg>

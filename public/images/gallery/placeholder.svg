@@ -1,0 +1,7 @@
+<svg width="600" height="450" viewBox="0 0 600 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="450" fill="#F2EEE3"/>
+  <circle cx="520" cy="60" r="120" fill="#DDEED6" opacity="0.7"/>
+  <circle cx="70" cy="420" r="110" fill="#F0DFC0" opacity="0.6"/>
+  <path d="M260 250 Q310 205 360 250 Q340 330 260 330 Q180 330 160 250Z" fill="#E0C9A4"/>
+  <text x="300" y="390" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="34" fill="#9A9A8A" letter-spacing="3">Gambar Galeri</text>
+</svg>

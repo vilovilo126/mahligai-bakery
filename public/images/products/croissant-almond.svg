@@ -1,0 +1,18 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBF6EA"/>
+      <stop offset="1" stop-color="#E2EFD9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="180" cy="180" r="270" fill="#EBDAB9" opacity="0.55"/>
+  <circle cx="1020" cy="730" r="250" fill="#C7E3BD" opacity="0.6"/>
+  <path d="M380 520 C 440 330 620 250 800 320 C 846 338 862 372 838 402 C 786 392 726 420 678 462 C 610 512 490 546 380 520Z" fill="#E8B163"/>
+  <circle cx="640" cy="360" r="16" fill="#B57F3E"/>
+  <circle cx="700" cy="390" r="16" fill="#B57F3E"/>
+  <circle cx="590" cy="420" r="16" fill="#B57F3E"/>
+  <circle cx="660" cy="470" r="16" fill="#B57F3E"/>
+  <circle cx="730" cy="450" r="16" fill="#B57F3E"/>
+  <text x="600" y="826" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="52" fill="#2F5B37" letter-spacing="3">Croissant Almond</text>
+</svg>
