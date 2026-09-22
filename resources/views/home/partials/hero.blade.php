@@ -28,12 +28,12 @@
 
             <div class="anim-fade-up mt-9 flex flex-col items-center gap-3.5 sm:flex-row sm:justify-center lg:justify-start"
                 style="animation-delay:0.4s">
-                <a href="#produk"
+                <a href="{{ route('login') }}"
                     class="btn-gradient group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-900/40 sm:w-auto">
-                    Lihat Produk
+                    Masuk sebagai Pelanggan
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                        class="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5">
-                        <path d="M12 5v14m-7-7 7 7 7-7"/>
+                        class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5">
+                        <path d="M5 12h14m-6-6 6 6-6 6"/>
                     </svg>
                 </a>
                 <a href="#tentang"

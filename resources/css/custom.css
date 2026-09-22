@@ -435,3 +435,177 @@ body {
 .wa-float {
     z-index: 50;
 }
+
+/* ---------- Modal footer safe-area (mobile) ---------- */
+.pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+#product-modal [data-modal-step],
+#product-modal .border-t,
+#product-modal .px-5 {
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 640px) {
+    #product-modal [data-modal-step] {
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+/* ---------- Product modal: satu area scroll utama ----------
+   Tanpa height yang pasti, kartu modal hanya dibatasi max-height sehingga
+   tinggi flex container bersifat indefinit dan konten yang lebih tinggi
+   dari viewport terpotong tanpa bisa discroll. Beri height pasti agar
+   body (flex-1 + min-height:0 + overflow-y:auto) menjadi satu-satunya
+   area scroll, sementara header & footer bertahan di tepi. */
+#product-modal [data-modal-card] {
+    height: 100dvh;
+}
+
+@media (min-width: 640px) {
+    #product-modal [data-modal-card] {
+        height: min(90dvh, calc(100dvh - 2rem));
+    }
+}
+
+#product-modal .overflow-y-auto {
+    overflow-x: hidden;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- Success check animation ---------- */
+.success-check svg {
+    animation: success-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.success-check {
+    animation: success-ring 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes success-pop {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes success-ring {
+    from {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.45);
+        transform: scale(0.7);
+    }
+    60% {
+        box-shadow: 0 0 0 18px rgba(16, 185, 129, 0);
+        transform: scale(1.06);
+    }
+    to {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+        transform: scale(1);
+    }
+}
+
+/* ---------- Chat scrollbar (tipis) ---------- */
+[data-chat-messages]::-webkit-scrollbar {
+    width: 6px;
+}
+
+[data-chat-messages]::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+[data-chat-messages]::-webkit-scrollbar-thumb {
+    background: var(--color-brand-200);
+    border: none;
+    border-radius: 999px;
+}
+
+/* ---------- Logo line (line-clamp fallback untuk elemen non-p) ---------- */
+.rc-line,
+[data-receipt-root] .max-w-sm {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ---------- Admin sidebar ---------- */
+.admin-sidebar {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 1023px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .admin-sidebar.is-open {
+        transform: translateX(0);
+        box-shadow: 24px 0 60px -30px rgba(10, 30, 18, 0.5);
+    }
+}
+
+.admin-nav-link {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.admin-nav-link.is-active {
+    background-color: rgba(255, 255, 255, 0.14);
+    color: #ffffff;
+}
+
+.admin-unread-dot {
+    box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5);
+    animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+    0% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 7px rgba(244, 63, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(244, 63, 94, 0);
+    }
+}
+
+/* ---------- Print struk (admin) ----------
+   Saat mencetak, hanya blok .print-only (satu struk aktual) yang ditampilkan.
+   Semua elemen lain pada halaman ditandai .no-print. Jangan sembunyikan
+   parent grid via `main > :not(...)` — struk bersarang jauh di dalamnya. */
+.print-only {
+    display: none;
+}
+
+@page {
+    margin: 12mm;
+}
+
+@media print {
+    body.is-printing-struk {
+        background: #fff;
+    }
+
+    body.is-printing-struk .admin-sidebar,
+    body.is-printing-struk header {
+        display: none !important;
+    }
+
+    body.is-printing-struk #admin-content {
+        padding-left: 0 !important;
+    }
+
+    body.is-printing-struk main .no-print {
+        display: none !important;
+    }
+
+    body.is-printing-struk main .print-only {
+        display: block !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+}

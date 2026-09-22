@@ -23,6 +23,8 @@ class OrderCalculatorService
         $groups = config('menu.groups', []);
         $items = Arr::get($payload, 'items', []);
 
+        $paymentMethod = Arr::get($payload, 'payment_method', 'qris');
+
         $validatedItems = [];
         $subtotal = 0;
         $addOnsTotal = 0;
@@ -35,6 +37,18 @@ class OrderCalculatorService
             $subtotal += $resolved['subtotal'];
             $addOnsTotal += $resolved['add_ons_total'];
             $qrisFee += $resolved['qris_fee'];
+        }
+
+        // Biaya QRIS hanya berlaku untuk pembayaran QRIS.
+        // Pembayaran WhatsApp tidak dikenakan biaya QRIS.
+        if ($paymentMethod === 'wa') {
+            $qrisFee = 0;
+
+            $validatedItems = collect($validatedItems)->map(function ($item) {
+                $item['qris_fee'] = 0;
+
+                return $item;
+            })->all();
         }
 
         $total = $subtotal + $addOnsTotal + $qrisFee;

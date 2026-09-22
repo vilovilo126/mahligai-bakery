@@ -31,5 +31,6 @@
         <x-chatbot />
         <x-product-detail-modal />
         <x-qris-modal />
+        <x-customer-chat />
     </body>
 </html>

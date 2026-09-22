@@ -19,62 +19,106 @@
         </div>
     @endif
 
-    <div class="mt-6 overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-brand-950/5">
+    <div class="mt-6">
+        <form method="GET" action="{{ route('admin.orders.index') }}" class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between" role="search">
+            <div class="relative w-full sm:max-w-sm">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pointer-events-none absolute top-1/2 left-3.5 h-4.5 w-4.5 -translate-y-1/2 text-brand-950/35"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                <input type="search" name="search" value="{{ request('search') }}" placeholder="Cari nomor pesanan, nama, atau WhatsApp…"
+                    class="w-full rounded-full border-0 bg-white py-2.5 pr-4 pl-10 text-sm text-brand-950 shadow-soft ring-1 ring-brand-950/10 transition placeholder:text-brand-950/35 focus:ring-2 focus:ring-brand-400">
+            </div>
+            @if (request('search'))
+                <a href="{{ route('admin.orders.index') }}" class="text-sm font-semibold text-brand-600 hover:underline">Reset pencarian</a>
+            @endif
+        </form>
+    </div>
+
+    <div class="mt-4 overflow-hidden rounded-3xl bg-white shadow-soft ring-1 ring-brand-950/5">
         <div class="overflow-x-auto">
-            <table class="w-full text-left text-sm">
+            <table class="w-full min-w-[1200px] text-left text-sm">
                 <thead>
                     <tr class="border-b border-brand-950/10 bg-cream-50 text-xs font-bold uppercase tracking-wide text-brand-950/50">
-                        <th class="px-5 py-4">Pelanggan</th>
-                        <th class="px-5 py-4">Metode</th>
-                        <th class="px-5 py-4">Total</th>
-                        <th class="px-5 py-4">Status Pemesanan</th>
-                        <th class="px-5 py-4">Status Pembayaran</th>
-                        <th class="px-5 py-4">Waktu</th>
-                        <th class="px-5 py-4 text-right">Aksi</th>
+                        <th class="px-4 py-4">No.</th>
+                        <th class="px-4 py-4">Nomor Pesanan</th>
+                        <th class="px-4 py-4">Nomor Urut</th>
+                        <th class="px-4 py-4">Nama Pelanggan</th>
+                        <th class="px-4 py-4">WhatsApp</th>
+                        <th class="px-4 py-4">Produk</th>
+                        <th class="px-4 py-4">Total</th>
+                        <th class="px-4 py-4">Tanggal Pesan</th>
+                        <th class="px-4 py-4">Jam Pesan</th>
+                        <th class="px-4 py-4">Tgl Pengambilan</th>
+                        <th class="px-4 py-4">Jam Pengambilan</th>
+                        <th class="px-4 py-4">Metode</th>
+                        <th class="px-4 py-4">Status Bayar</th>
+                        <th class="px-4 py-4">Status Pesanan</th>
+                        <th class="px-4 py-4 text-right">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-brand-950/5">
-                    @forelse ($orders as $order)
+                    @forelse ($orders as $index => $order)
                         <tr class="align-top transition hover:bg-brand-50/40">
-                            <td class="px-5 py-4">
-                                <p class="font-semibold text-brand-950">{{ $order->customer_name }}</p>
-                                <p class="mt-0.5 text-xs text-brand-950/55">{{ $order->customer_phone }}</p>
+                            <td class="px-4 py-4 text-brand-950/50">{{ $orders->firstItem() + $index }}</td>
+                            <td class="px-4 py-4 font-semibold text-brand-950">{{ $order->order_number }}</td>
+                            <td class="px-4 py-4">
+                                <span class="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-xs font-bold text-white">#{{ $order->queue_number }}</span>
                             </td>
-                            <td class="px-5 py-4">
+                            <td class="px-4 py-4 font-semibold text-brand-950">{{ $order->customer_name }}</td>
+                            <td class="px-4 py-4 text-brand-950/60">{{ $order->customer_phone }}</td>
+                            <td class="px-4 py-4 text-xs leading-relaxed text-brand-950/65">
+                                @php
+                                    $products = collect($order->order_data ?? [])
+                                        ->map(fn ($item) => trim(($item['variant'] ?? '').' '.($item['package'] ?? '')).' x'.($item['quantity'] ?? 1))
+                                        ->filter();
+                                @endphp
+                                @if ($products->isNotEmpty())
+                                    <ul class="space-y-0.5">
+                                        @foreach ($products as $line)
+                                            <li>{{ $line }}</li>
+                                        @endforeach
+                                    </ul>
+                                @else
+                                    <span class="text-brand-950/40">—</span>
+                                @endif
+                                @if ($order->bakery_request)
+                                    <span class="mt-1 inline-block rounded-md bg-amber-50 px-2 py-0.5 font-semibold text-amber-700">Ada request</span>
+                                @endif
+                            </td>
+                            <td class="px-4 py-4 font-display font-bold text-brand-800">Rp{{ number_format($order->total, 0, ',', '.') }}</td>
+                            <td class="px-4 py-4 text-brand-950/55">{{ $order->created_at->format('d M Y') }}</td>
+                            <td class="px-4 py-4 text-brand-950/55">{{ $order->created_at->format('H:i') }}</td>
+                            <td class="px-4 py-4 text-brand-950/55">{{ $order->pickup_date?->format('d M Y') ?: '—' }}</td>
+                            <td class="px-4 py-4 text-brand-950/55">{{ $order->pickup_time ? substr((string) $order->pickup_time, 0, 5) : '—' }}</td>
+                            <td class="px-4 py-4">
                                 <span class="inline-flex rounded-full px-3 py-1 text-xs font-bold {{ $order->payment_method === 'qris' ? 'bg-emerald-100 text-emerald-700' : 'bg-sky-100 text-sky-700' }}">
                                     {{ $order->payment_method_label }}
                                 </span>
                             </td>
-                            <td class="px-5 py-4 font-display font-bold text-brand-800">Rp{{ number_format($order->total, 0, ',', '.') }}</td>
-                            <td class="px-5 py-4">
-                                <span class="inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">
-                                    {{ $order->order_status_label }}
-                                </span>
+                            <td class="px-4 py-4">
+                                <span class="inline-flex rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-700">{{ $order->payment_status_label }}</span>
                             </td>
-                            <td class="px-5 py-4">
-                                <span class="inline-flex rounded-full bg-brand-100 px-3 py-1 text-xs font-bold text-brand-700">
-                                    {{ $order->payment_status_label }}
-                                </span>
+                            <td class="px-4 py-4">
+                                <span class="inline-flex rounded-full bg-amber-100 px-3 py-1 text-xs font-bold text-amber-700">{{ $order->order_status_label }}</span>
                             </td>
-                            <td class="px-5 py-4 text-xs text-brand-950/55">{{ $order->created_at->format('d M Y, H:i') }}</td>
-                            <td class="px-5 py-4">
-                                <div class="flex justify-end gap-2">
+                            <td class="px-4 py-4">
+                                <div class="flex flex-col items-end gap-1.5">
                                     <a href="{{ route('admin.orders.show', $order) }}"
                                         class="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-brand-700">
-                                        Detail
+                                        Lihat Detail
                                     </a>
-                                    <a href="{{ \App\Support\OrderHelper::waLink($order->customer_phone, \App\Support\OrderHelper::adminOrderMessage($order)) }}"
-                                        target="_blank" rel="noopener"
-                                        class="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-emerald-500 px-3.5 py-2 text-xs font-semibold text-white transition hover:bg-emerald-600">
-                                        <svg viewBox="0 0 24 24" fill="currentColor" class="h-3.5 w-3.5"><path d="M12 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Z"/></svg>
-                                        Hubungi WA
+                                    <a href="{{ route('admin.orders.show', $order) }}#struk"
+                                        class="inline-flex items-center gap-1.5 rounded-full bg-brand-50 px-3.5 py-2 text-xs font-semibold text-brand-700 ring-1 ring-brand-950/10 transition hover:bg-brand-100">
+                                        Lihat Struk
+                                    </a>
+                                    <a href="{{ route('admin.orders.show', $order) }}#ubah-status"
+                                        class="inline-flex items-center gap-1.5 rounded-full bg-white px-3.5 py-2 text-xs font-semibold text-brand-800 ring-1 ring-brand-950/10 transition hover:bg-cream-100">
+                                        Ubah Status
                                     </a>
                                 </div>
                             </td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="px-5 py-16 text-center">
+                            <td colspan="15" class="px-5 py-16 text-center">
                                 <p class="text-base font-semibold text-brand-950/60">Belum ada pesanan.</p>
                                 <p class="mt-1 text-sm text-brand-950/40">Pesanan pelanggan akan muncul di sini.</p>
                             </td>

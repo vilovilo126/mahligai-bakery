@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use App\Services\Order\OrderCalculatorService;
+use Illuminate\Support\Facades\Config;
 use RuntimeException;
 use Tests\TestCase;
 
@@ -112,5 +113,43 @@ class OrderCalculatorServiceTest extends TestCase
         ]);
 
         $this->assertSame(40000, $result['total']);
+    }
+
+    public function test_qris_fee_only_applies_to_qris_payment(): void
+    {
+        Config::set('menu.groups', [
+            [
+                'id' => 'grup-tes',
+                'title' => 'Grup Tes',
+                'variants' => [
+                    ['name' => 'Produk QRIS', 'price' => 14000, 'qris_fee' => 1500],
+                ],
+                'variant_groups' => [],
+                'packages' => [],
+                'add_ons' => [],
+            ],
+        ]);
+
+        $qris = app(OrderCalculatorService::class)->calculate([
+            'payment_method' => 'qris',
+            'items' => [
+                ['group_id' => 'grup-tes', 'variant' => 'Produk QRIS', 'package' => null, 'add_ons' => [], 'quantity' => 1],
+            ],
+        ]);
+
+        $wa = app(OrderCalculatorService::class)->calculate([
+            'payment_method' => 'wa',
+            'items' => [
+                ['group_id' => 'grup-tes', 'variant' => 'Produk QRIS', 'package' => null, 'add_ons' => [], 'quantity' => 1],
+            ],
+        ]);
+
+        $this->assertSame(14000, $qris['subtotal']);
+        $this->assertSame(1500, $qris['qris_fee']);
+        $this->assertSame(15500, $qris['total']);
+
+        $this->assertSame(14000, $wa['subtotal']);
+        $this->assertSame(0, $wa['qris_fee']);
+        $this->assertSame(14000, $wa['total']);
     }
 }

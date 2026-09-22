@@ -9,3 +9,6 @@ import './modules/open-hours';
 import './modules/counters';
 import './modules/testimonials';
 import './modules/chatbot';
+import './modules/customer-auth';
+import './modules/customer-notifications';
+import './modules/customer-chat';

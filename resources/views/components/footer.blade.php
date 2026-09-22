@@ -24,10 +24,12 @@
             <div>
                 <h3 class="text-xs font-bold uppercase tracking-[0.24em] text-white/40">Menu</h3>
                 <ul class="mt-5 space-y-3 text-sm">
-                    <li><a href="#produk" class="text-white/65 transition hover:text-white">Produk Kami</a></li>
-                    <li><a href="#unggulan" class="text-white/65 transition hover:text-white">Favorit Terlaris</a></li>
-                    <li><a href="#galeri" class="text-white/65 transition hover:text-white">Galeri</a></li>
+                    <li><a href="#beranda" class="text-white/65 transition hover:text-white">Beranda</a></li>
                     <li><a href="#tentang" class="text-white/65 transition hover:text-white">Tentang Kami</a></li>
+                    <li><a href="#cerita" class="text-white/65 transition hover:text-white">Cerita Kami</a></li>
+                    <li><a href="#galeri" class="text-white/65 transition hover:text-white">Galeri</a></li>
+                    <li><a href="#lokasi" class="text-white/65 transition hover:text-white">Lokasi</a></li>
+                    <li><a href="#kontak" class="text-white/65 transition hover:text-white">Kontak</a></li>
                 </ul>
             </div>
 

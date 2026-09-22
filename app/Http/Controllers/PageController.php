@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use App\Models\Testimonial;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
 class PageController extends Controller
 {
-    public function index(): View
+    /**
+     * Halaman pertama: landing page / company profile Mahligai Bakery.
+     * Tidak menampilkan katalog menu/pemesanan sama sekali.
+     */
+    public function landing(): View
     {
         $menuGroups = config('menu.groups', []);
 
@@ -30,6 +35,21 @@ class PageController extends Controller
             ->orderBy('id')
             ->get();
 
-        return view('home.index', compact('menuGroups', 'menuVariantCount', 'galleries', 'testimonials'));
+        return view('home.landing', compact('menuVariantCount', 'galleries', 'testimonials'));
+    }
+
+    /**
+     * Halaman pelanggan: /menu adalah Customer Shopping Page.
+     * Pengunjung yang belum login diarahkan ke landing page.
+     */
+    public function index(): View|RedirectResponse
+    {
+        if (auth()->guest()) {
+            return redirect()->route('home');
+        }
+
+        $menuGroups = config('menu.groups', []);
+
+        return view('home.index', compact('menuGroups'));
     }
 }

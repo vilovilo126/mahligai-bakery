@@ -1,36 +1,48 @@
 @extends('layouts.admin')
 
-@section('title', 'Detail Pesanan #'.$order->id)
+@section('title', 'Detail Pesanan '.$order->order_number)
 
 @section('content')
-    <a href="{{ route('admin.orders.index') }}" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition hover:text-brand-800">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m12 19-7-7 7-7M5 12h14"/></svg>
-        Kembali ke Daftar
-    </a>
-
-    <div class="mt-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-            <h1 class="font-display text-2xl font-semibold text-brand-950">Pesanan #{{ $order->id }}</h1>
-            <p class="mt-1 text-sm text-brand-950/55">Dibuat {{ $order->created_at->format('d M Y, H:i') }}</p>
-        </div>
-        <a href="{{ \App\Support\OrderHelper::waLink($order->customer_phone, \App\Support\OrderHelper::adminOrderMessage($order)) }}"
-            target="_blank" rel="noopener"
-            class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-600">
-            <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Z"/></svg>
-            Hubungi via WhatsApp
+    <div class="no-print flex flex-col gap-3">
+        <a href="{{ route('admin.orders.index') }}" class="inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-brand-600 transition hover:text-brand-800">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m12 19-7-7 7-7M5 12h14"/></svg>
+            Kembali ke Daftar
         </a>
+
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+                <div class="flex items-center gap-3">
+                    <h1 class="font-display text-2xl font-semibold text-brand-950">{{ $order->order_number }}</h1>
+                    <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 text-sm font-bold text-white">#{{ $order->queue_number }}</span>
+                </div>
+                <p class="mt-1 text-sm text-brand-950/55">Dibuat {{ $order->created_at->format('d M Y, H:i') }}</p>
+            </div>
+            <div class="flex flex-wrap gap-2">
+                @if ($order->customer)
+                    <a href="{{ route('admin.chat') }}" class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></svg>
+                        Buka Chat Pelanggan
+                    </a>
+                @endif
+                <a href="{{ $order->wa_order_link }}" target="_blank" rel="noopener"
+                    class="inline-flex items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-600">
+                    <svg viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M12 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.3-1.4A10 10 0 1 0 12 2Z"/></svg>
+                    Hubungi via WhatsApp
+                </a>
+            </div>
+        </div>
     </div>
 
     @if (session('status'))
-        <div class="mt-6 rounded-2xl bg-emerald-100 px-4 py-3 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-200">
+        <div class="no-print mt-6 rounded-2xl bg-emerald-100 px-4 py-3 text-sm font-semibold text-emerald-800 ring-1 ring-emerald-200">
             {{ session('status') }}
         </div>
     @endif
 
-    <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
-        {{-- Kolom kiri: detail pelanggan & status --}}
-        <div class="space-y-6 lg:col-span-1">
-            <div class="rounded-3xl bg-white p-6 shadow-soft ring-1 ring-brand-950/5">
+    <div class="no-print mt-6 grid grid-cols-1 gap-6 lg:grid-cols-3">
+        {{-- Kolom kiri: data pelanggan & status --}}
+        <div class="flex flex-col gap-6 lg:col-span-1">
+            <div class="rounded-3xl bg-white p-5 shadow-soft ring-1 ring-brand-950/5">
                 <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">Data Pelanggan</h2>
                 <dl class="mt-4 space-y-3 text-sm">
                     <div>
@@ -41,18 +53,56 @@
                         <dt class="text-xs text-brand-950/45">Nomor WhatsApp</dt>
                         <dd class="mt-0.5 font-semibold text-brand-950">{{ $order->customer_phone }}</dd>
                     </div>
-                    <div>
+                    <div class="flex items-center justify-between gap-3">
                         <dt class="text-xs text-brand-950/45">Metode Pembayaran</dt>
-                        <dd class="mt-0.5">
+                        <dd>
                             <span class="inline-flex rounded-full px-3 py-1 text-xs font-bold {{ $order->payment_method === 'qris' ? 'bg-emerald-100 text-emerald-700' : 'bg-sky-100 text-sky-700' }}">
                                 {{ $order->payment_method_label }}
                             </span>
                         </dd>
                     </div>
+                    <div class="flex items-center justify-between gap-3">
+                        <dt class="text-xs text-brand-950/45">Akun Pelanggan</dt>
+                        <dd class="text-right">
+                            @if ($order->customer)
+                                <a href="{{ route('admin.chat') }}" class="font-semibold text-brand-600 hover:underline">{{ $order->customer->name }}</a>
+                            @else
+                                <span class="font-semibold text-brand-950/45">Tanpa akun</span>
+                            @endif
+                        </dd>
+                    </div>
+                    <div class="grid grid-cols-2 gap-3 border-t border-brand-950/5 pt-3">
+                        <div>
+                            <dt class="text-xs text-brand-950/45">Tanggal Pesan</dt>
+                            <dd class="mt-0.5 font-semibold text-brand-950">{{ $order->created_at->format('d M Y') }}</dd>
+                        </div>
+                        <div>
+                            <dt class="text-xs text-brand-950/45">Jam Pesan</dt>
+                            <dd class="mt-0.5 font-semibold text-brand-950">{{ $order->created_at->format('H:i') }}</dd>
+                        </div>
+                    </div>
+                    @if ($order->pickup_date || $order->pickup_time)
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <dt class="text-xs text-brand-950/45">Tgl Pengambilan</dt>
+                                <dd class="mt-0.5 font-semibold text-brand-950">{{ $order->pickup_date?->format('d M Y') ?: '—' }}</dd>
+                            </div>
+                            <div>
+                                <dt class="text-xs text-brand-950/45">Jam Pengambilan</dt>
+                                <dd class="mt-0.5 font-semibold text-brand-950">{{ $order->pickup_time ? substr((string) $order->pickup_time, 0, 5) : '—' }}</dd>
+                            </div>
+                        </div>
+                    @endif
+                    @if ($order->bakery_request)
+                        <div class="border-t border-brand-950/5 pt-3">
+                            <dt class="text-xs text-brand-950/45">Request Bakery</dt>
+                            <dd class="mt-1 whitespace-pre-wrap rounded-xl bg-amber-50 px-3 py-2 text-sm font-medium text-amber-900 ring-1 ring-amber-200">{{ $order->bakery_request }}</dd>
+                        </div>
+                    @endif
                 </dl>
             </div>
 
-            <div class="rounded-3xl bg-white p-6 shadow-soft ring-1 ring-brand-950/5">
+            <div id="ubah-status" class="scroll-mt-24 rounded-3xl bg-white p-5 shadow-soft ring-1 ring-brand-950/5">
                 <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">Perbarui Status</h2>
                 <form action="{{ route('admin.orders.update-status', $order) }}" method="POST" class="mt-4 space-y-4">
                     @csrf
@@ -80,8 +130,8 @@
             </div>
         </div>
 
-        {{-- Kolom kanan: rincian pesanan & total --}}
-        <div class="space-y-6 lg:col-span-2">
+        {{-- Kolom kanan: rincian, pembayaran & struk --}}
+        <div class="flex flex-col gap-6 lg:col-span-2">
             <div class="rounded-3xl bg-white p-6 shadow-soft ring-1 ring-brand-950/5">
                 <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">Rincian Pesanan</h2>
                 <div class="mt-5 space-y-5">
@@ -146,6 +196,28 @@
                     </div>
                 </dl>
             </div>
+
+            <div id="struk" class="scroll-mt-24 rounded-3xl bg-white p-6 shadow-soft ring-1 ring-brand-950/5">
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+                    <div>
+                        <h2 class="text-xs font-bold uppercase tracking-[0.2em] text-brand-600">Struk Pesanan</h2>
+                        <p class="mt-1 text-sm text-brand-950/50">Klik "Cetak Struk" untuk mencetak sebagai bukti pengambilan.</p>
+                    </div>
+                    <button type="button" data-print-struk-trigger
+                        class="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M6 9V2h12v7"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8" rx="1"/></svg>
+                        Cetak Struk
+                    </button>
+                </div>
+                <div class="mt-6">
+                    <x-order-receipt :order="$order" />
+                </div>
+            </div>
         </div>
+    </div>
+
+    {{-- Isi yang dicetak: hanya struk (satunya) --}}
+    <div class="print-only">
+        <x-order-receipt :order="$order" />
     </div>
 @endsection

@@ -2,18 +2,25 @@
 
 namespace Tests\Feature;
 
-use App\Models\Gallery;
-use App\Models\Testimonial;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class HomePageTest extends TestCase
+class MenuPageTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_home_page_renders_all_sections(): void
+    protected function setUp(): void
     {
-        $this->get('/')
+        parent::setUp();
+
+        $customer = User::factory()->customer()->create();
+        $this->actingAs($customer);
+    }
+
+    public function test_menu_page_renders_all_sections(): void
+    {
+        $this->get('/menu')
             ->assertOk()
             ->assertSee('Rasa Hangat')
             ->assertSee('Katalog Menu Mahligai Bakery')
@@ -21,7 +28,7 @@ class HomePageTest extends TestCase
             ->assertSee('ROTI SISIR')
             ->assertSee('ANEKA ROTI (REGULAR BREAD)')
             ->assertSee('Temukan Kami di Denpasar')
-            ->assertSee('Apa Kata Pelanggan Kami');
+            ->assertDontSee('Apa Kata Pelanggan Kami');
     }
 
     public function test_menu_catalog_renders_driven_data(): void
@@ -30,7 +37,7 @@ class HomePageTest extends TestCase
 
         $this->assertNotEmpty($menuGroups);
 
-        $this->get('/')
+        $this->get('/menu')
             ->assertOk()
             ->assertSee('Smoked Beef Cheese')
             ->assertSee('Selai Nanas')
@@ -38,24 +45,5 @@ class HomePageTest extends TestCase
             ->assertSee('VARIAN KLASIK')
             ->assertSee('ROTI TAWAR')
             ->assertSee('ROTI SOBEK PANDAN');
-    }
-
-    public function test_home_page_renders_gallery_and_testimonials(): void
-    {
-        Gallery::factory()->create([
-            'title' => 'Sudut Toko Kami',
-            'is_active' => true,
-        ]);
-
-        Testimonial::factory()->create([
-            'name' => 'Made Wijaya',
-            'rating' => 5,
-            'is_active' => true,
-        ]);
-
-        $this->get('/')
-            ->assertOk()
-            ->assertSee('Sudut Toko Kami')
-            ->assertSee('Made Wijaya');
     }
 }
